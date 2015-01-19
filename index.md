@@ -1,6 +1,6 @@
 ---
-title       : Coursera Data Products Class Project
-subtitle    : TODO Make a subtitle
+title       : Global Temperature Trends
+subtitle    : Coursera Data Products Class Project
 author      : Coursera10062014
 job         : 
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}

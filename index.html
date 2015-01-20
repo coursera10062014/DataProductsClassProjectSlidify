@@ -54,16 +54,9 @@ might leave you asking questions, like...</p>
 <li>How do we know?</li>
 </ol>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
+<h1>NASA has answers</h1>
 
-<slide class="class" id="id" style="background:;">
-  <hgroup>
-    <h1>NASA has answers</h1>
-  </hgroup>
-  <article data-timings="">
-    <p>NASA publishes data tables with historical temperature records.</p>
+<p>NASA publishes data tables with historical temperature records.</p>
 
 <p>I chose to use <a href="http://data.giss.nasa.gov/gistemp/tabledata_v3/NH.Ts+dSST.txt">this table</a>
 as my topic for analysis.</p>
@@ -92,17 +85,43 @@ of one hundredth of a degree Celcius.</p>
 
 <slide class="class" id="id" style="background:;">
   <hgroup>
-    <h1>Check out my app</h1>
+    <h1>Temperatures fell during the mid 20th century</h1>
   </hgroup>
   <article data-timings="">
-    <p>You can see linear fits for mean annual temperatures over different date
-ranges, and draw your own conclusions.</p>
+    <pre><code class="r">d &lt;- filterYears(data, c(1940, 1960))
+lm(d$AnnualMeanJanToDec ~ d$Year)$coefficients[2]
+</code></pre>
 
-<p>Check out the temperature drops in the middle of the 20th century.</p>
+<pre><code>##     d$Year 
+## -0.5935065
+</code></pre>
 
-<p>Note the steep rise in the last 30 years.  </p>
+<p>This suggests that based on the mid-century trend, temperatures would fall 0.59&deg;C over a century.  But...</p>
 
-<p><a href="https://coursera10062014b.shinyapps.io/DataProductsClassProjectShiny/">Take me to the app</a></p>
+<h1>Temperatures rose sharply in the last 30 years</h1>
+
+<pre><code class="r">d &lt;- filterYears(data, c(1984, 2014))
+lm(d$AnnualMeanJanToDec ~ d$Year)$coefficients[2]
+</code></pre>
+
+<pre><code>## d$Year 
+## 2.5625
+</code></pre>
+
+<p>This suggests that temperatures would rise 2.6&deg;C over a century.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h1>Explore the data</h1>
+  </hgroup>
+  <article data-timings="">
+    <p><a href="https://coursera10062014b.shinyapps.io/DataProductsClassProjectShiny/">Take me to the app</a></p>
+
+<p>See what conclusions you can draw.</p>
 
   </article>
   <!-- Presenter Notes -->
@@ -120,19 +139,19 @@ ranges, and draw your own conclusions.</p>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=2 title='NASA has answers'>
+        data-slide=2 title='What&#39;s in the data?'>
          2
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=3 title='What&#39;s in the data?'>
+        data-slide=3 title='Temperatures fell during the mid 20th century'>
          3
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=4 title='Check out my app'>
+        data-slide=4 title='Explore the data'>
          4
       </a>
     </li>

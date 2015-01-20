@@ -19,9 +19,7 @@ might leave you asking questions, like...
    1. How fast are temperatures rising?
    2. Are they rising faster now than in the past?
    3. How do we know?
-
---- .class #id 
-
+   
 # NASA has answers
 
 NASA publishes data tables with historical temperature records.
@@ -42,15 +40,43 @@ of one hundredth of a degree Celcius.
 
 I worked with the January to December annual averages.
 
+--- .class #id
+
+# Temperatures fell during the mid 20th century
+
+
+
+```r
+d <- filterYears(data, c(1940, 1960))
+lm(d$AnnualMeanJanToDec ~ d$Year)$coefficients[2]
+```
+
+```
+##     d$Year 
+## -0.5935065
+```
+
+This suggests that based on the mid-century trend, temperatures would fall 0.59&deg;C over a century.  But...
+
+# Temperatures rose sharply in the last 30 years
+
+
+```r
+d <- filterYears(data, c(1984, 2014))
+lm(d$AnnualMeanJanToDec ~ d$Year)$coefficients[2]
+```
+
+```
+## d$Year 
+## 2.5625
+```
+
+This suggests that temperatures would rise 2.6&deg;C over a century.
+
 --- .class #id 
 
-# Check out my app
-
-You can see linear fits for mean annual temperatures over different date
-ranges, and draw your own conclusions.
-
-Check out the temperature drops in the middle of the 20th century.
-
-Note the steep rise in the last 30 years.  
+# Explore the data
 
 [Take me to the app](https://coursera10062014b.shinyapps.io/DataProductsClassProjectShiny/)
+
+See what conclusions you can draw.
